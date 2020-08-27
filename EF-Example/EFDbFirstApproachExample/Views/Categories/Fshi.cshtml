@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Fshi";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Fshi Kategorine</h2>
+<hr />
+<form action="/categories/fshi/@Model.CategoryID" method="post">
+    <table class="table">
+        <tr>
+            <td>
+                <label for="CategoryName">Category Name</label>
+            </td>
+            <td>
+                <input type="hidden" name="CategoryID" value="@Model.CategoryID" />
+                @Model.CategoryName
+            </td>
+        </tr>
+    </table>
+    <hr />
+    <div>Are you sure to delete this category?</div>
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a class="btn btn-danger" href="/categories/index">Cancel</a>
+</form>

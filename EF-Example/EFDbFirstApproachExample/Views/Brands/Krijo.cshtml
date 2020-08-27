@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Krijo";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Shto Brand</h2>
+<hr />
+<form action="/brands/krijo" method="post">
+    <div class="form-group col-md-6">
+        <label for="ProductName">Brand Name</label>
+        <input type="text" class="form-control" id="BrandName" name="BrandName" placeholder="Brand Name">
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-success">Krijo</button>
+        <a class="btn btn-danger" href="/brands/index">Cancel</a>
+    </div>
+</form>
+

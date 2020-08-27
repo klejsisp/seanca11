@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Krijo";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Shto Kategori</h2>
+<hr />
+<form action="/categories/krijo" method="post">
+    <div class="form-group col-md-6">
+        <label for="ProductName">Emer Kategorie</label>
+        <input type="text" class="form-control" id="CategoryName" name="CategoryName" placeholder="Emer Kategorie">
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-success">Krijo</button>
+        <a class="btn btn-danger" href="/categories/index">Cancel</a>
+    </div>
+</form>

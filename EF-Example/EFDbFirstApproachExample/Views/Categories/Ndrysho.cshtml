@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Ndrysho";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Ndrysho Kategori</h2>
+<hr />
+<form action="/categories/ndrysho/@Model.CategoryID" method="post">
+    
+    <div class="form-group col-md-6">
+        <label for="CategoryName">Emer Kategorie</label>
+        <input type="hidden" name="CategoryID" value="@Model.CategoryID" />
+
+        <input type="text" class="form-control" id="CategoryName" name="CategoryName" placeholder="Emer Kategorie" value="@Model.CategoryName">
+    </div>
+        <div>
+            <button type="submit" class="btn btn-success">Ruaj ndryshimet</button>
+            <a class="btn btn-danger" href="/categories/index">Cancel</a>
+        </div>
+</form>

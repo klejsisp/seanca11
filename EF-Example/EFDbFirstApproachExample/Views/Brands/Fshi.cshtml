@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Fshi";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Fshi Brand</h2>
+<hr />
+<form action="/brands/fshi/@Model.BrandID" method="post">
+    <table class="table">
+        <tr>
+            <td>
+                <label for="BrandName">Brand Name</label>
+            </td>
+            <td>
+                <input type="hidden" name="BrandID" value="@Model.BrandID" />
+                @Model.BrandName
+            </td>
+        </tr>
+    </table>
+    <hr />
+    <div>Are you sure to delete this brand?</div>
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a class="btn btn-danger" href="/brands/index">Cancel</a>
+</form>
+

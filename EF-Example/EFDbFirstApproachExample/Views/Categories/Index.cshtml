@@ -1,0 +1,119 @@
+﻿@model List<EFDbFirstApproachExample.Models.Category>
+
+@{
+    ViewBag.Title = "Categories";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Categories</h2>
+
+<form class="form-inline" action="/categories/index">
+    <label for="search" class="mr-1">Search:</label>
+    <input type="search" class="form-control mr-1" id="search" name="search" placeholder="Search" value="@ViewBag.search">
+    <button type="submit" class="btn btn-primary">GO</button>
+</form>
+<hr />
+<a href="/categories/krijo">Shto kategori te re</a>
+<hr />
+<table class="table">
+    <tr>
+        <th style="width:10%">
+            @if (ViewBag.iconclass == "fa-sort-desc")
+            {
+                <a href="/categories/index?sortcolumn=CategoryID&iconclass=fa-sort-asc&pg=1">Category ID</a>
+                if (ViewBag.sortcolumn == "CategoryID")
+                {
+                    <i class="fa @ViewBag.iconclass"></i>
+                }
+            }
+            else
+            {
+                <a href="/categories/index?sortcolumn=CategoryID&iconclass=fa-sort-desc&pg=1">Category ID</a>
+                if (ViewBag.sortcolumn == "CategoryID")
+                {
+                    <i class="fa @ViewBag.iconclass"></i>
+                }
+            }
+        </th>
+        <th style="width:20%">
+            @if (ViewBag.iconclass == "fa-sort-desc")
+            {
+                <a href="/categories/index?sortcolumn=CategoryName&iconclass=fa-sort-asc&pg=1">Category Name</a>
+                if (ViewBag.sortcolumn == "CategoryName")
+                {
+                    <i class="fa @ViewBag.iconclass"></i>
+                }
+            }
+            else
+            {
+                <a href="/categories/index?sortcolumn=CategoryName&iconclass=fa-sort-desc&pg=1">Category Name</a>
+                if (ViewBag.sortcolumn == "CategoryName")
+                {
+                    <i class="fa @ViewBag.iconclass"></i>
+                }
+            }
+        </th>
+        <th>Detajet</th>
+        <th>Ndrysho</th>
+        <th>Fshi</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CategoryID</td>
+            <td>@item.CategoryName</td>
+
+            <td><a href="/categories/detajet/@item.CategoryID">Details</a></td>
+
+            <td><a href="/categories/ndrysho/@item.CategoryID">Ndrysho</a></td>
+            <td><a href="/categories/fshi/@item.CategoryID">Fshi</a></td>
+        </tr>
+    }
+
+    <tr>
+        <td colspan="9">
+            @{
+                int PrevPageNo = ViewBag.PageNo - 1;
+                if (PrevPageNo <= 0)
+                {
+                    PrevPageNo = 1;
+                }
+
+                int NextPageNo = ViewBag.PageNo + 1;
+                if (NextPageNo > ViewBag.NoOfPages)
+                {
+                    NextPageNo = ViewBag.NoOfPages;
+                }
+            }
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <a class="page-link" href="/categories/index?sortcolumn=@ViewBag.sortcolumn&iconclass=@ViewBag.iconclass&pg=@PrevPageNo">Prev</a>
+                </li>
+                @for (int i = 0; i < ViewBag.NoOfPages; i++)
+                {
+                    if ((i + 1) == ViewBag.PageNo)
+                    {
+                        <li class="page-item active">
+                            <a class="page-link" href="/categories/index?sortcolumn=@ViewBag.sortcolumn&iconclass=@ViewBag.iconclass&pg=@(i + 1)">@( i + 1)</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="page-item">
+                            <a class="page-link" href="/categories/index?sortcolumn=@ViewBag.sortcolumn&iconclass=@ViewBag.iconclass&pg=@(i + 1)">@( i + 1)</a>
+                        </li>
+                    }
+                }
+                <li class="page-item">
+                    <a class="page-link" href="/categories/index?sortcolumn=@ViewBag.sortcolumn&iconclass=@ViewBag.iconclass&pg=@NextPageNo">Next</a>
+                </li>
+            </ul>
+        </td>
+    </tr>
+
+
+
+</table>
+
+
+

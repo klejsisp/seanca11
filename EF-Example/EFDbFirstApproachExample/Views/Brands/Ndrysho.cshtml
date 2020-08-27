@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Ndrysho";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Ndrysho Brand</h2>
+
+<hr />
+<form action="/brands/ndrysho/@Model.BrandID" method="post">
+
+    <div class="form-group col-md-6">
+        <label for="BrandName">Brand Name</label>
+        <input type="hidden" name="BrandID" value="@Model.BrandID" />
+        <input type="text" class="form-control" id="BrandName" name="BrandName" placeholder="Brand Name" value="@Model.BrandName">
+    </div>
+    <div>
+        <button type="submit" class="btn btn-success">Ruaj ndryshimet</button>
+        <a class="btn btn-danger" href="/brands/index">Cancel</a>
+    </div>
+</form>

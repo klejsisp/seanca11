@@ -1,0 +1,20 @@
+﻿@model EFDbFirstApproachExample.Models.Category
+@{
+    ViewBag.Title = "Detajet";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Detajet e kategorise se selektuar</h2>
+<hr />
+<table class="table">
+    <tr>
+        <th>Emer kategorie</th>
+        <th>Id kategorie</th>
+
+    </tr>
+    <tr>
+        <td>@Model.CategoryName</td>
+        <td>@Model.CategoryID</td>
+    </tr>
+</table>
+
