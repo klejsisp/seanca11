@@ -63,9 +63,12 @@ namespace EFDbFirstApproachExample.Controllers
         public ActionResult Krijo(Brand b)
         {
             var db = new ProveDbContex();
-            db.Brands.Add(b);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                db.Brands.Add(b);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            } else { return View(); }
             
         }
         public ActionResult Ndrysho(int id)

@@ -62,10 +62,14 @@ namespace EFDbFirstApproachExample.Controllers
         [HttpPost]
         public ActionResult Krijo(Category cat)
         {
-            var db = new ProveDbContex();
-            db.Categories.Add(cat);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                var db = new ProveDbContex();
+                db.Categories.Add(cat);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else return View();
 
         }
         public ActionResult Ndrysho(int id)

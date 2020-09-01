@@ -90,26 +90,35 @@ namespace EFDbFirstApproachExample.Controllers
         public ActionResult Create()
         {
             ProveDbContex db = new ProveDbContex();
-            ViewBag.Categories = db.Categories.ToList();
-            ViewBag.Brands = db.Brands.ToList();
-            return View();
+              ViewBag.Categories = db.Categories.ToList();
+                ViewBag.Brands = db.Brands.ToList();
+                return View();
+           
+               
         }
 
         [HttpPost]
         public ActionResult Create(Product p)
         {
             ProveDbContex db = new ProveDbContex();
-            if (Request.Files.Count >=1)
+            if (ModelState.IsValid)
             {
-                var file = Request.Files[0];
-                var imgBytes = new Byte[file.ContentLength ];
-                file.InputStream.Read(imgBytes, 0, file.ContentLength);
-                var base64String = Convert.ToBase64String(imgBytes, 0, imgBytes.Length);
-                p.Photo = base64String;
+                if (Request.Files.Count >= 1)
+                {
+                    var file = Request.Files[0];
+                    var imgBytes = new Byte[file.ContentLength];
+                    file.InputStream.Read(imgBytes, 0, file.ContentLength);
+                    var base64String = Convert.ToBase64String(imgBytes, 0, imgBytes.Length);
+                    p.Photo = base64String;
+                }
+                db.Products.Add(p);
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
-            db.Products.Add(p);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            else   {
+                ViewBag.Categories = db.Categories.ToList();
+                ViewBag.Brands = db.Brands.ToList();
+                return View(); }
         }
 
         public ActionResult Edit(long id)

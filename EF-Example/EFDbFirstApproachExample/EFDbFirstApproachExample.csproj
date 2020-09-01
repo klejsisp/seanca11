@@ -134,10 +134,18 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.3.1.js" />
-    <Content Include="Scripts\jquery-3.3.1.min.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery-3.5.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.5.1.js" />
+    <Content Include="Scripts\jquery-3.5.1.min.js" />
+    <Content Include="Scripts\jquery-3.5.1.slim.js" />
+    <Content Include="Scripts\jquery-3.5.1.slim.min.js" />
+    <Content Include="Scripts\jquery-3.5.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.5.1.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
@@ -169,6 +177,8 @@
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Custom Validation\Validimdate.cs" />
+    <Compile Include="Custom Validation\Validimklas.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -179,6 +189,18 @@
     <Compile Include="Migrations\202008272115059_shtopershkrimtekprodukti.cs" />
     <Compile Include="Migrations\202008272115059_shtopershkrimtekprodukti.designer.cs">
       <DependentUpon>202008272115059_shtopershkrimtekprodukti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008280235222_validimi.cs" />
+    <Compile Include="Migrations\202008280235222_validimi.designer.cs">
+      <DependentUpon>202008280235222_validimi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009011938132_shtimivalidimproduct.cs" />
+    <Compile Include="Migrations\202009011938132_shtimivalidimproduct.designer.cs">
+      <DependentUpon>202009011938132_shtimivalidimproduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009012033369_Shtocustomvalidatedatainproduct.cs" />
+    <Compile Include="Migrations\202009012033369_Shtocustomvalidatedatainproduct.designer.cs">
+      <DependentUpon>202009012033369_Shtocustomvalidatedatainproduct.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Brand.cs" />
@@ -191,8 +213,6 @@
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.3.1.min.map" />
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Products\Create.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
@@ -228,6 +248,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008272115059_shtopershkrimtekprodukti.resx">
       <DependentUpon>202008272115059_shtopershkrimtekprodukti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008280235222_validimi.resx">
+      <DependentUpon>202008280235222_validimi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009011938132_shtimivalidimproduct.resx">
+      <DependentUpon>202009011938132_shtimivalidimproduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009012033369_Shtocustomvalidatedatainproduct.resx">
+      <DependentUpon>202009012033369_Shtocustomvalidatedatainproduct.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
